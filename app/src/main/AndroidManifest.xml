@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Tigo"
         tools:targetApi="31">
         <activity
+            android:name=".SignIn.SignIn"
+            android:exported="false" />
+        <activity
             android:name=".LogIn.LogIn"
             android:exported="true">
             <intent-filter>

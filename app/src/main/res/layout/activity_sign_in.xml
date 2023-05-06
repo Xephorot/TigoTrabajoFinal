@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogIn.LogIn">
-
+    tools:context=".SignIn.SignIn">
     <LinearLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
-            android:text="Inicio de Sesion"
+            android:text="Registro de Cuenta"
             android:textColor="#3F51B5"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -42,7 +41,7 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="15dp"
             android:hint="Email"
             android:minHeight="48dp" />
 
@@ -50,9 +49,16 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="15dp"
             android:hint="Password"
             android:inputType="textPassword"
+            android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/NombreCompletoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Nombre Completo"
             android:minHeight="48dp" />
 
         <LinearLayout
@@ -66,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#3F51B5"
-                android:text="Iniciar Sesion" />
+                android:text="Crear Cuenta" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,17 +86,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="#3F51B5"
-                android:text="Registrarse" />
+                android:text="Iniciar Sesion" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/ForgottenButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#3F51B5"
-            android:layout_marginTop="100dp"
-            android:text="Olvide la Contraseña" />
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
