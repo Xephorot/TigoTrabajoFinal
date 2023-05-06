@@ -9,4 +9,4 @@ Cuando quiero que me hagas una explicacion de un tema que te pregunte quiero que
 
 <p>Avances</p>
 <p>Login</p>
-![image](https://user-images.githubusercontent.com/129518967/236635471-42dcc9d9-11f1-4d05-81a1-ce52cc777ed8.png)
+![Alt text](https://user-images.githubusercontent.com/129518967/236635471-42dcc9d9-11f1-4d05-81a1-ce52cc777ed8.png)
