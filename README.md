@@ -13,4 +13,13 @@ Cuando quiero que me hagas una explicacion de un tema que te pregunte quiero que
 <p>SignIn</p>
 ![Imagen del SignIn](https://user-images.githubusercontent.com/129518967/236636069-d75f1eb2-b798-45e7-af13-4c26a98ed94d.png)
 
+<p>Actualizar mensaje</p>
+ "Proximamente"
+
+<p>Lista de plan</p>
+<p>Crear la lista de los planes disponibles y que desearia aumentar en su plan</p>
+
+<p>Solo falta la lista de confirmacion de compra con el total y los productos seleccionados</p>
+
+
 
