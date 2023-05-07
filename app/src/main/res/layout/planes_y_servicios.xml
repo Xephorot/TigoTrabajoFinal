@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Planes"
+                android:text="@string/planes"
                 android:textColor=" #103f87 "
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -63,7 +63,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Plan Tigo hogar basico"
+                        android:text="@string/plan_tigo_hogar_basico"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Hogar 50 mbps + TV"
+                        android:text="@string/hogar_50_mbps_tv"
                         android:textColor="#0B4B8F"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -82,7 +82,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="BS 309.00"
+                        android:text="@string/bs_309_00"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -94,7 +94,9 @@
                             android:id="@+id/imageView2"
                             android:layout_width="58dp"
                             android:layout_height="59dp"
-                            app:srcCompat="@drawable/tele" />
+                            android:contentDescription="@string/todo"
+                            app:srcCompat="@drawable/tele"
+                            tools:ignore="ImageContrastCheck" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -103,21 +105,19 @@
 
                             <TextView
                                 android:id="@+id/textView3"
-                                android:layout_width="253dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:text="Television"
+                                android:text="@string/television"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/textView4"
-                                android:layout_width="248dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:text="171 Canales"
+                                android:text="@string/_171_canales"
                                 tools:ignore="DuplicateIds" />
                         </LinearLayout>
 
@@ -133,7 +133,9 @@
                             android:layout_width="115dp"
                             android:layout_height="59dp"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/wfii" />
+                            app:srcCompat="@drawable/wfii"
+                            tools:ignore="ImageContrastCheck"
+                            android:contentDescription="@string/todo_" />
 
 
 
@@ -145,16 +147,17 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
+                                android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                tools:ignore="NestedWeights,UselessParent">
 
                             <TextView
                                 android:id="@+id/textView5"
                                 android:layout_width="109dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Wifi"
+                                android:text="@string/wifi"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
 
@@ -164,16 +167,19 @@
                                     android:layout_width="147dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="50 mb " />
+                                    android:text="@string/_50_mb" />
 
 
                                 <Button
-                                    android:id="@+id/button"
+                                    android:id="@+id/planHogar1Button"
                                     android:layout_width="180dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:backgroundTint="#2CBAE4"
-                                    android:text="Comprar" />
+                                    android:text="@string/comprar"
+                                    android:textColor="#4527A0"
+                                    tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -205,7 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Plan Tigo hogar intermedio"
+                        android:text="@string/plan_tigo_hogar_intermedio"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -214,7 +220,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Hogar 80 mbps + TV"
+                        android:text="@string/hogar_80_mbps_tv"
                         android:textColor="#0B4B8F"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -224,7 +230,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="BS 369.00"
+                        android:text="@string/bs_369_00"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -236,7 +242,8 @@
                             android:id="@+id/imageView4"
                             android:layout_width="58dp"
                             android:layout_height="59dp"
-                            app:srcCompat="@drawable/tele" />
+                            app:srcCompat="@drawable/tele"
+                            android:contentDescription="@string/todo__" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -245,21 +252,21 @@
 
                             <TextView
                                 android:id="@+id/textView13"
-                                android:layout_width="253dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+
                                 android:layout_weight="1"
-                                android:text="Television"
+                                android:text="@string/television2"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/textView14"
-                                android:layout_width="248dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
+
                                 android:layout_weight="1"
-                                android:text="213 Canales"
+                                android:text="@string/_213_canales"
                                 tools:ignore="DuplicateIds" />
                         </LinearLayout>
 
@@ -275,7 +282,9 @@
                             android:layout_width="115dp"
                             android:layout_height="59dp"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/wfii" />
+                            app:srcCompat="@drawable/wfii"
+                            tools:ignore="ImageContrastCheck"
+                            android:contentDescription="@string/todo2" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -285,15 +294,16 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
+                                android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                tools:ignore="NestedWeights,UselessParent">
                                 <TextView
                                     android:id="@+id/textView15"
                                     android:layout_width="109dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="Wifi"
+                                    android:text="@string/wifiw"
                                     android:textSize="15sp"
                                     android:textStyle="bold" />
 
@@ -302,15 +312,17 @@
                                     android:layout_width="147dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    android:text="80 mb " />
+                                    android:text="@string/_80_mb" />
 
                                 <Button
-                                    android:id="@+id/button2"
+                                    android:id="@+id/planHogar2Button"
                                     android:layout_width="180dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:backgroundTint="#2CBAE4"
-                                    android:text="Comprar" />
+                                    android:text="@string/comprar2"
+                                    android:textColor="#4527A0"
+                                    tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -343,7 +355,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Plan Tigo hogar avanzado"
+            android:text="@string/plan_tigo_hogar_avanzado"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -352,7 +364,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Hogar 120 mbps + TV"
+            android:text="@string/hogar_120_mbps_tv"
             android:textColor="#0B4B8F"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -362,7 +374,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="BS 469.00"
+            android:text="@string/bs_469_00"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -370,11 +382,13 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="58dp"
-            android:layout_height="59dp"
-            app:srcCompat="@drawable/tele" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="58dp"
+                android:layout_height="59dp"
+                app:srcCompat="@drawable/tele"
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="@string/todo3" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -383,21 +397,19 @@
 
             <TextView
                 android:id="@+id/textView23"
-                android:layout_width="253dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="Television"
+                android:text="@string/television3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView24"
-                android:layout_width="248dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="269 Canales"
+                android:text="@string/_269_canales"
                 tools:ignore="DuplicateIds" />
         </LinearLayout>
 
@@ -413,7 +425,9 @@
                     android:layout_width="115dp"
                     android:layout_height="59dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/wfii" />
+                    android:contentDescription="@string/todo4"
+                    app:srcCompat="@drawable/wfii"
+                    tools:ignore="ImageContrastCheck" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -423,16 +437,17 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        tools:ignore="NestedWeights,UselessParent">
 
                         <TextView
                             android:id="@+id/textView25"
                             android:layout_width="109dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Wifi"
+                            android:text="@string/wifi4"
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
@@ -441,16 +456,17 @@
                             android:layout_width="147dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="120 mb " />
+                            android:text="@string/_120_mb" />
 
                         <Button
-                            android:id="@+id/button3"
-
+                            android:id="@+id/planHogar3Button"
                             android:layout_width="180dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:backgroundTint="#2CBAE4"
-                            android:text="Comprar" />
+                            android:text="@string/comprar3"
+                            android:textColor="#4527A0"
+                            tools:ignore="VisualLintButtonSize" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -467,7 +483,7 @@
                 android:shadowDx="2"
                 android:shadowDy="2"
                 android:shadowRadius="1"
-                android:text="Contenidos premium"
+                android:text="@string/contenidos_premium"
                 android:textColor="#103f87 "
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -486,7 +502,8 @@
                         android:id="@+id/imageView27"
                         android:layout_width="124dp"
                         android:layout_height="89dp"
-                        app:srcCompat="@drawable/prime" />
+                        app:srcCompat="@drawable/prime"
+                        android:contentDescription="@string/todo5" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -498,7 +515,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Disfruta de miles de series, películas y producciones originales" />
+                            android:text="@string/disfruta_de_miles_de_series_pel_culas_y_producciones_originales" />
 
                         <Button
                             android:id="@+id/button4"
@@ -506,11 +523,18 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:backgroundTint="#2CBAE4"
-                            android:text="Sumar al plan" />
+                            android:text="@string/sumar_al_plan"
+                            android:textColor="#4527A0"
+                            tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
                     </LinearLayout>
 
                 </LinearLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#808080"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -520,7 +544,8 @@
                         android:id="@+id/imageView29"
                         android:layout_width="124dp"
                         android:layout_height="89dp"
-                        app:srcCompat="@drawable/hbo" />
+                        app:srcCompat="@drawable/hbo"
+                        android:contentDescription="@string/todo6" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -532,7 +557,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="No te pierdas de los estrenos más taquilleros del cine y la TV" />
+                            android:text="@string/no_te_pierdas_de_los_estrenos_m_s_taquilleros_del_cine_y_la_tv" />
 
                         <Button
                             android:id="@+id/button5"
@@ -540,11 +565,18 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:backgroundTint="#2CBAE4"
-                            android:text="Sumar al plan" />
+                            android:text="@string/sumar_al_plan2"
+                            android:textColor="#4527A0"
+                            tools:ignore="VisualLintButtonSize" />
                     </LinearLayout>
 
                 </LinearLayout>
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#808080"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -554,7 +586,8 @@
                         android:id="@+id/imageView8"
                         android:layout_width="124dp"
                         android:layout_height="89dp"
-                        app:srcCompat="@drawable/ai" />
+                        app:srcCompat="@drawable/ai"
+                        android:contentDescription="@string/todo7" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -564,17 +597,19 @@
                         <TextView
                             android:id="@+id/textView31"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="Parte de los más de 1000 contenidos para adulto, en línea y sin costo adicional" />
+                            android:text="@string/parte_de_los_m_s_de_1000_contenidos_para_adulto_en_l_nea_y_sin_costo" />
 
                         <Button
                             android:id="@+id/button9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+
                             android:backgroundTint="#2CBAE4"
-                            android:text="Sumar al plan" />
+                            android:text="@string/sumar_al_plan3"
+                            android:textColor="#4527A0"
+                            tools:ignore="VisualLintButtonSize" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -587,10 +622,11 @@
                     <Button
                         android:id="@+id/button6"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:backgroundTint="#E31414"
-                        android:text="Restablecer" />
+                        android:text="@string/restablecer"
+                        tools:ignore="VisualLintButtonSize" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -598,4 +634,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
