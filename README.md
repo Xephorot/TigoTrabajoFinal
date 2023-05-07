@@ -21,5 +21,5 @@ Cuando quiero que me hagas una explicacion de un tema que te pregunte quiero que
 
 <p>Solo falta la lista de confirmacion de compra con el total y los productos seleccionados</p>
 
-
+<p> La carpeta "src" puedes eliminarla? </p>
 
