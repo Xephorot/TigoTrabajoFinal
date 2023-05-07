@@ -12,8 +12,8 @@
         android:theme="@style/Theme.Tigo"
         tools:targetApi="31">
         <activity
-            android:name=".planesyservicios"
-            android:exported="true"
+            android:name=".MainMenu"
+            android:exported="false"
             android:label="@string/title_activity_main_menu"
             android:theme="@style/Theme.Tigo.NoActionBar">
         </activity>

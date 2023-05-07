@@ -1,5 +1,6 @@
 package com.example.tigo.DataBase;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class UsersDataBase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "users_db";
+    private static final String DATABASE_NAME = "users_db.db";
     private static final String TABLE_NAME = "users_table";
 
     // Columnas de la tabla
@@ -78,7 +79,7 @@ public class UsersDataBase extends SQLiteOpenHelper {
 
         boolean exists = cursor.moveToFirst();
         if (exists) {
-            String storedPassword = cursor.getString(cursor.getColumnIndex(COL_PASSWORD));
+            @SuppressLint("Range") String storedPassword = cursor.getString(cursor.getColumnIndex(COL_PASSWORD));
             exists = password.equals(storedPassword);
         }
 
