@@ -38,6 +38,14 @@
             android:src="@drawable/img" />
 
         <EditText
+            android:id="@+id/NombreCompletoEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Nombre Completo"
+            android:minHeight="48dp" />
+
+        <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,13 +60,6 @@
             android:layout_marginBottom="15dp"
             android:hint="Password"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
-        <EditText
-            android:id="@+id/NombreCompletoEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:hint="Nombre Completo"
             android:minHeight="48dp" />
 
         <LinearLayout
