@@ -10,7 +10,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("¿Que es Tigo Bolivia?\n\n En Bolivia operamos desde 1991. Desde nuestros inicios buscamos dar a nuestros consumidores lo mejor, por eso hoy, 28 años después, estamos orgullosos de ofrecer desde telefonía e Internet móvil de alta velocidad, Internet fijo ilimitado, Televisión por subscripción, contenido de entretenimiento hasta servicios de billetera móvil y servicios corporativos.");
     }
 
     public LiveData<String> getText() {
