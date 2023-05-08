@@ -1,4 +1,4 @@
-package com.example.tigo;
+package com.example.tigo.Planes;
 
 public class Plan {
     private String nombre;

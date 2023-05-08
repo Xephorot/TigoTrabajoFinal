@@ -1,6 +1,5 @@
-package com.example.tigo;
+package com.example.tigo.Carrito;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tigo.DataBase.DBplan;
+import com.example.tigo.R;
 
 import java.util.ArrayList;
 

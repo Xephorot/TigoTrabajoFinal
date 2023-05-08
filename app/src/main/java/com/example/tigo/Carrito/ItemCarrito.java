@@ -1,4 +1,4 @@
-package com.example.tigo;
+package com.example.tigo.Carrito;
 
 public class ItemCarrito {
     private int id;
