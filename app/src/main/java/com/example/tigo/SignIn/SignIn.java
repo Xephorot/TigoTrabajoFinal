@@ -15,61 +15,72 @@ import com.example.tigo.MainMenu;
 import com.example.tigo.R;
 
 //Este Codigo utiliza el Patron de Diseño MVC (Modelo-Vista-Controlador)
-public class SignIn extends AppCompatActivity {
-    private EditText nombreCompletoEditText;
-    private EditText emailEditText;
-    private EditText passwordEditText;
-    private Button crearCuentaButton;
-    private Button iniciarSesionButton;
-
+public class SignIn extends AppCompatActivity implements SignInView {
+    private EditText fullNameEditText, emailEditText, passwordEditText;
+    private Button createAccountButton, signInButton;
     private UsersDataBase database;
+    private SignInPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        nombreCompletoEditText = findViewById(R.id.NombreCompletoEditText);
+        fullNameEditText = findViewById(R.id.NombreCompletoEditText);
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
-        crearCuentaButton = findViewById(R.id.loginButton);
-        iniciarSesionButton = findViewById(R.id.registerButton);
+        createAccountButton = findViewById(R.id.loginButton);
+        signInButton = findViewById(R.id.registerButton);
 
         database = new UsersDataBase(this);
+        presenter = new SignInPresenter(this, database);
 
-        crearCuentaButton.setOnClickListener(new View.OnClickListener() {
+        createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombreCompleto = nombreCompletoEditText.getText().toString().trim();
+                String fullName = fullNameEditText.getText().toString().trim();
                 String email = emailEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
-
-                if (nombreCompleto.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(SignIn.this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show();
-                } else {
-                    boolean usuarioExistente = database.checkUser(email);
-                    if (!usuarioExistente) {
-                        long resultado = database.addUser(nombreCompleto, email, password);
-                        if (resultado > 0) {
-                            Toast.makeText(SignIn.this, "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignIn.this, MainMenu.class));
-                            finish();
-                        } else {
-                            Toast.makeText(SignIn.this, "Error al crear cuenta", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(SignIn.this, "Este email ya existe, por favor ingrese otro", Toast.LENGTH_SHORT).show();
-                    }
-                }
+                presenter.onCreateAccountClicked(fullName, email, password);
             }
         });
 
-        iniciarSesionButton.setOnClickListener(new View.OnClickListener() {
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignIn.this, LogIn.class));
-                finish();
+                presenter.onSignInClicked();
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Cerrar la conexión a la base de datos al destruir la actividad
+        database.close();
+    }
+
+    @Override
+    public void showErrorMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showSuccessMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void navigateToMainMenu() {
+        Intent intent = new Intent(SignIn.this, MainMenu.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void navigateToLogIn() {
+        Intent intent = new Intent(SignIn.this, LogIn.class);
+        startActivity(intent);
+        finish();
     }
 }
