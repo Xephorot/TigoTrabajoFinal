@@ -1,14 +1,14 @@
-package com.example.tigo.ui.gallery;
+package com.example.tigo.ui.PlanesYServicios;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class PlanesViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public PlanesViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }
