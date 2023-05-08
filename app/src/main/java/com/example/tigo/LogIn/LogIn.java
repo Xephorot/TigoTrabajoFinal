@@ -18,6 +18,8 @@ import com.example.tigo.MainMenu;
 import com.example.tigo.R;
 import com.example.tigo.SignIn.SignIn;
 
+//Este Codigo utiliza el Patron de Diseño MVC (Modelo-Vista-Controlador)
+
 public class LogIn extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private UsersDataBase usersDataBase;
@@ -99,6 +101,7 @@ public class LogIn extends AppCompatActivity {
         usersDataBase.close();
     }
 }
+
 
 
 

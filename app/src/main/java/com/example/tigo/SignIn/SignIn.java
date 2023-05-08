@@ -14,6 +14,7 @@ import com.example.tigo.LogIn.LogIn;
 import com.example.tigo.MainMenu;
 import com.example.tigo.R;
 
+//Este Codigo utiliza el Patron de Diseño MVC (Modelo-Vista-Controlador)
 public class SignIn extends AppCompatActivity {
     private EditText nombreCompletoEditText;
     private EditText emailEditText;
