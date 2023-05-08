@@ -1,6 +1,6 @@
 package com.example.tigo;
 
-import android.annotation.SuppressLint;
+
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;

@@ -88,4 +88,21 @@ public class UsersDataBase extends SQLiteOpenHelper {
 
         return exists;
     }
+
+    public String getUserNameByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + COL_NAME + " FROM " + TABLE_NAME + " WHERE " + COL_EMAIL + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        String userName = null;
+
+        if (cursor.moveToFirst()) {
+            int nameColumnIndex = cursor.getColumnIndexOrThrow(COL_NAME);
+            userName = cursor.getString(nameColumnIndex);
+        }
+
+        cursor.close();
+        db.close();
+
+        return userName;
+    }
 }
