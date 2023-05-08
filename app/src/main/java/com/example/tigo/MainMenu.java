@@ -1,11 +1,15 @@
 package com.example.tigo;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 import com.example.tigo.DataBase.UsersDataBase;
+import com.example.tigo.LogIn.LogIn;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -63,6 +67,37 @@ public class MainMenu extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main_menu);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            cerrarSesion();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    private void cerrarSesion() {
+        // Aquí va tu código para cerrar sesión (borrar tokens, preferencias, etc.)
+        // Obtener SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("mis_preferencias", MODE_PRIVATE);
+
+        // Borrar los datos almacenados en SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("token_acceso");
+        editor.remove("nombre_usuario");
+        editor.apply();
+
+        // Iniciar LoginActivity y finalizar MainActivity
+        Intent loginIntent = new Intent(MainMenu.this, LogIn.class);
+        startActivity(loginIntent);
+        finish();
     }
 
 }
