@@ -84,20 +84,19 @@ public class MainMenu extends AppCompatActivity {
 
 
     private void cerrarSesion() {
-        // Aquí va tu código para cerrar sesión (borrar tokens, preferencias, etc.)
         // Obtener SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("mis_preferencias", MODE_PRIVATE);
 
         // Borrar los datos almacenados en SharedPreferences
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("token_acceso");
         editor.remove("nombre_usuario");
+        editor.remove("email_usuario");
         editor.apply();
 
         // Iniciar LoginActivity y finalizar MainActivity
         Intent loginIntent = new Intent(MainMenu.this, LogIn.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(loginIntent);
         finish();
     }
-
 }

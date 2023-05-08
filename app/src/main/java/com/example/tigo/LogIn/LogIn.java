@@ -29,6 +29,15 @@ public class LogIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        // Verificar si el usuario ya ha iniciado sesión
+        SharedPreferences sharedPreferences = getSharedPreferences("mis_preferencias", MODE_PRIVATE);
+        String userEmail = sharedPreferences.getString("email_usuario", null);
+        if (userEmail != null) {
+            // Si el usuario ya ha iniciado sesión, redirigir a MainActivity
+            Intent mainIntent = new Intent(LogIn.this, MainMenu.class);
+            startActivity(mainIntent);
+            finish();}
+
         // Obtener referencias de vistas
         TextView textView = findViewById(R.id.textView);
         ImageView imageView = findViewById(R.id.imageView);
