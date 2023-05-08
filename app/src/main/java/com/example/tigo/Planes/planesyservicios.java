@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tigo.DataBase.DBplan;
 import com.example.tigo.R;
 
-public class planesyservicios extends AppCompatActivity {
+public class planesyservicios extends AppCompatActivity implements PlanesServiciosContract.View {
     private Button planHogar1Button;
     private Button planHogar2Button;
     private Button planHogar3Button;
@@ -26,6 +26,7 @@ public class planesyservicios extends AppCompatActivity {
     private DBplan dBplan;
     private SQLiteDatabase db;
 
+    private PlanesServiciosContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +44,16 @@ public class planesyservicios extends AppCompatActivity {
         adultContentButton = findViewById(R.id.button9);
         resetButton = findViewById(R.id.button6);
 
+        presenter = new PlanesServiciosPresenter(this, dBplan);
+
+
 
 
         planHogar1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Plan planHogar1 = new Plan("Plan Hogar basico", "Internet de 50 mbps, 171 canales", 309.00);
-                guardarPlanSeleccionado(planHogar1);
+                presenter.onPlanSelected(planHogar1);
                 planHogar1Button.setEnabled(false);
                 planHogar2Button.setEnabled(false);
                 planHogar3Button.setEnabled(false);
@@ -60,7 +64,7 @@ public class planesyservicios extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Plan planHogar2 = new Plan("Plan Hogar intermedio", "Internet de 80 mbps, 213 canales", 369.00);
-                guardarPlanSeleccionado(planHogar2);
+                presenter.onPlanSelected(planHogar2);
                 planHogar1Button.setEnabled(false);
                 planHogar2Button.setEnabled(false);
                 planHogar3Button.setEnabled(false);
@@ -71,7 +75,7 @@ public class planesyservicios extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Plan planHogar3 = new Plan("Plan Hogar avanzado", "Internet de 120 mbps, 269 canales.", 469.00);
-                guardarPlanSeleccionado(planHogar3);
+                presenter.onPlanSelected(planHogar3);
                 planHogar1Button.setEnabled(false);
                 planHogar2Button.setEnabled(false);
                 planHogar3Button.setEnabled(false);
@@ -137,40 +141,24 @@ public class planesyservicios extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetSelections();
+                presenter.onResetClicked();
             }
         });
     }
 
-    private void guardarPlanSeleccionado(Plan plan) {
-        ContentValues values = new ContentValues();
-        values.put(DBplan.PLAN_COL_NOMBRE, plan.getNombre());
-        values.put(DBplan.PLAN_COL_DESCRIPCION, plan.getDescripcion());
-        values.put(DBplan.PLAN_COL_PRECIO, plan.getPrecio());
 
-        long result = db.insert(DBplan.PLAN_TABLE_NAME, null, values);
 
-        if (result != -1) {
-            Toast.makeText(this, "Plan " + plan.getNombre() + " agregado a tu compra.", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Error al agregar plan " + plan.getNombre() + " a tu compra.", Toast.LENGTH_SHORT).show();
-        }
+    @Override
+    public void showToastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-    private void guardarPaquetePremiumSeleccionado(Premium premium) {
-        ContentValues values = new ContentValues();
-        values.put(DBplan.PAQUETE_COL_NOMBRE, premium.getNombre());
-        values.put(DBplan.PAQUETE_COL_DESCRIPCION, premium.getDescripcion());
-        values.put(DBplan.PAQUETE_COL_PRECIO, premium.getPrecio());
 
-        long result = db.insert(DBplan.PAQUETE_TABLE_NAME, null, values);
-
-        if (result != -1) {
-            Toast.makeText(this, "Paquete " + premium.getNombre() + " agregado a tu compra.", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Error al agregar paquete " + premium.getNombre() + " a tu compra.", Toast.LENGTH_SHORT).show();
-        }
+    @Override
+    public void setButtonEnabled(int buttonId, boolean enabled) {
+        findViewById(buttonId).setEnabled(enabled);
     }
-    private void resetSelections() {
+
+    public void resetSelections() {
         planHogar1Button.setEnabled(true);
         planHogar2Button.setEnabled(true);
         planHogar3Button.setEnabled(true);

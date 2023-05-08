@@ -322,7 +322,7 @@
                                     android:backgroundTint="#2CBAE4"
                                     android:text="@string/comprar2"
                                     android:textColor="#4527A0"
-                                    tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize" />
+                                    tools:ignore="DuplicateSpeakableTextCheck,VisualLintButtonSize,TextSizeCheck" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
