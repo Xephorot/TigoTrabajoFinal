@@ -57,4 +57,7 @@
     <string name="restablecer">Restablecer</string>
     <string name="cerrar_sesion">Cerrar sesion</string>
     <string name="carrito">Carro</string>
+    <string name="total_0_00">Total: $0.00</string>
+    <string name="volver">Volver</string>
+    <string name="pagar">Pagar</string>
 </resources>

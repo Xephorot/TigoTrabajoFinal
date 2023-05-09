@@ -10,14 +10,16 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="-244dp">
 
         <TextView
             android:id="@+id/titulo_carrito"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-light"
             android:layout_gravity="center"
+            android:fontFamily="sans-serif-light"
             android:shadowColor="#103f87"
             android:shadowDx="2"
             android:shadowDy="2"
@@ -49,7 +51,7 @@
         android:id="@+id/total_carrito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total: $0.00"
+        android:text="@string/total_0_00"
         app:layout_constraintBottom_toTopOf="@+id/btn_pagar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -58,7 +60,7 @@
         android:id="@+id/btn_volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Volver"
+        android:text="@string/volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -66,7 +68,7 @@
         android:id="@+id/btn_pagar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pagar"
+        android:text="@string/pagar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
