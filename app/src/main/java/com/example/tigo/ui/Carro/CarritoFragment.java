@@ -35,8 +35,7 @@ public class CarritoFragment extends Fragment {
     private ArrayList<ItemCarrito> itemsCarrito;
     private View view;
 
-    @Nullable
-    @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class CarritoFragment extends Fragment {
         btnVolver = view.findViewById(R.id.btn_volver);
         btnPagar = view.findViewById(R.id.btn_pagar);
 
-        //itemsCarrito = obtenerItemsCarrito();
+        itemsCarrito = obtenerItemsCarrito();
         carritoAdapter = new CarritoAdapter(itemsCarrito);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(carritoAdapter);
@@ -77,7 +76,7 @@ public class CarritoFragment extends Fragment {
             }
         });
     }
-/*
+
     private ArrayList<ItemCarrito> obtenerItemsCarrito() {
         ArrayList<ItemCarrito> items = new ArrayList<>();
         SQLiteDatabase db = dBplan.getReadableDatabase();
@@ -85,17 +84,17 @@ public class CarritoFragment extends Fragment {
         // Obtener los planes
         // Obtener los planes
         String[] projectionPlan = {
-                PLAN_COL_ID,
-                PLAN_COL_NOMBRE,
-                PLAN_COL_DESCRIPCION,
-                PLAN_COL_PRECIO,
+                DBplan.PLAN_COL_ID,
+                DBplan.PLAN_COL_NOMBRE,
+                DBplan.PLAN_COL_DESCRIPCION,
+                DBplan.PLAN_COL_PRECIO,
                 "SUM(1) AS cantidad"
         };
 
-        String groupByPlan = PLAN_COL_ID;
+        String groupByPlan =   DBplan.PLAN_COL_ID;
 
         Cursor cursorPlan = db.query(
-                PLAN_TABLE_NAME,
+                DBplan.PLAN_TABLE_NAME,
                 projectionPlan,
                 null,
                 null,
@@ -105,10 +104,10 @@ public class CarritoFragment extends Fragment {
         );
 
         while (cursorPlan.moveToNext()) {
-            int id = cursorPlan.getInt(cursorPlan.getColumnIndexOrThrow(PLAN_COL_ID));
-            String nombre = cursorPlan.getString(cursorPlan.getColumnIndexOrThrow(PLAN_COL_NOMBRE));
-            String descripcion = cursorPlan.getString(cursorPlan.getColumnIndexOrThrow(PLAN_COL_DESCRIPCION));
-            double precio = cursorPlan.getDouble(cursorPlan.getColumnIndexOrThrow(PLAN_COL_PRECIO));
+            int id = cursorPlan.getInt(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_ID));
+            String nombre = cursorPlan.getString(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_NOMBRE));
+            String descripcion = cursorPlan.getString(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_DESCRIPCION));
+            double precio = cursorPlan.getDouble(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_PRECIO));
             int cantidad = cursorPlan.getInt(cursorPlan.getColumnIndexOrThrow("cantidad"));
 
             ItemCarrito item = new ItemCarrito(id, nombre, descripcion, precio, cantidad);
@@ -118,17 +117,17 @@ public class CarritoFragment extends Fragment {
 
         // Obtener los paquetes
         String[] projectionPaquete = {
-                PAQUETE_COL_ID,
-                PAQUETE_COL_NOMBRE,
-                PAQUETE_COL_DESCRIPCION,
-                PAQUETE_COL_PRECIO,
-                "SUM(" + PAQUETE_COL_CANTIDAD + ") AS cantidad"
+                DBplan.PAQUETE_COL_ID,
+                DBplan.PAQUETE_COL_NOMBRE,
+                DBplan.PAQUETE_COL_DESCRIPCION,
+                DBplan.PAQUETE_COL_PRECIO,
+                "SUM(1) AS cantidad"
         };
 
-        String groupByPaquete = PAQUETE_COL_ID;
+        String groupByPaquete =   DBplan.PAQUETE_COL_ID;
 
         Cursor cursorPaquete = db.query(
-                PAQUETE_TABLE_NAME,
+                DBplan.PAQUETE_TABLE_NAME,
                 projectionPaquete,
                 null,
                 null,
@@ -138,10 +137,10 @@ public class CarritoFragment extends Fragment {
         );
 
         while (cursorPaquete.moveToNext()) {
-            int id = cursorPaquete.getInt(cursorPaquete.getColumnIndexOrThrow(PAQUETE_COL_ID));
-            String nombre = cursorPaquete.getString(cursorPaquete.getColumnIndexOrThrow(PAQUETE_COL_NOMBRE));
-            String descripcion = cursorPaquete.getString(cursorPaquete.getColumnIndexOrThrow(PAQUETE_COL_DESCRIPCION));
-            double precio = cursorPaquete.getDouble(cursorPaquete.getColumnIndexOrThrow(PAQUETE_COL_PRECIO));
+            int id = cursorPaquete.getInt(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_ID));
+            String nombre = cursorPaquete.getString(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_NOMBRE));
+            String descripcion = cursorPaquete.getString(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_DESCRIPCION));
+            double precio = cursorPaquete.getDouble(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_PRECIO));
             int cantidad = cursorPaquete.getInt(cursorPaquete.getColumnIndexOrThrow("cantidad"));
             ItemCarrito item = new ItemCarrito(id, nombre, descripcion, precio, cantidad);
             items.add(item);
@@ -149,7 +148,7 @@ public class CarritoFragment extends Fragment {
         cursorPaquete.close();
 
         return items;
-    }*/
+    }
 
     private void actualizarTotalCarrito() {
         double total = 0;
