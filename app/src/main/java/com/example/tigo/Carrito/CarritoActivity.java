@@ -1,5 +1,6 @@
 package com.example.tigo.Carrito;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.example.tigo.DataBase.DBplan;
 import com.example.tigo.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CarritoActivity extends AppCompatActivity {
 
@@ -64,9 +66,73 @@ public class CarritoActivity extends AppCompatActivity {
 
     private ArrayList<ItemCarrito> obtenerItemsCarrito() {
         ArrayList<ItemCarrito> items = new ArrayList<>();
-        // Aquí debes agregar la lógica para obtener los items del carrito de la base de datos.
-        // Por ejemplo, podrías realizar una consulta SQL y guardar los resultados en un Cursor.
-        // Luego, puedes recorrer el Cursor y crear objetos ItemCarrito a partir de los datos.
+        SQLiteDatabase db = dBplan.getReadableDatabase();
+
+        // Obtener los planes
+        // Obtener los planes
+        String[] projectionPlan = {
+                DBplan.PLAN_COL_ID,
+                DBplan.PLAN_COL_NOMBRE,
+                DBplan.PLAN_COL_DESCRIPCION,
+                DBplan.PLAN_COL_PRECIO,
+                "SUM(1) AS cantidad"
+        };
+
+        String groupByPlan =   DBplan.PLAN_COL_ID;
+
+        Cursor cursorPlan = db.query(
+                DBplan.PLAN_TABLE_NAME,
+                projectionPlan,
+                null,
+                null,
+                groupByPlan,
+                null,
+                null
+        );
+
+        while (cursorPlan.moveToNext()) {
+            int id = cursorPlan.getInt(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_ID));
+            String nombre = cursorPlan.getString(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_NOMBRE));
+            String descripcion = cursorPlan.getString(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_DESCRIPCION));
+            double precio = cursorPlan.getDouble(cursorPlan.getColumnIndexOrThrow(  DBplan.PLAN_COL_PRECIO));
+            int cantidad = cursorPlan.getInt(cursorPlan.getColumnIndexOrThrow("cantidad"));
+
+            ItemCarrito item = new ItemCarrito(id, nombre, descripcion, precio, cantidad);
+            items.add(item);
+        }
+        cursorPlan.close();
+
+        // Obtener los paquetes
+        String[] projectionPaquete = {
+                DBplan.PAQUETE_COL_ID,
+                DBplan.PAQUETE_COL_NOMBRE,
+                DBplan.PAQUETE_COL_DESCRIPCION,
+                DBplan.PAQUETE_COL_PRECIO,
+                "SUM(1) AS cantidad"
+        };
+
+        String groupByPaquete =   DBplan.PAQUETE_COL_ID;
+
+        Cursor cursorPaquete = db.query(
+                DBplan.PAQUETE_TABLE_NAME,
+                projectionPaquete,
+                null,
+                null,
+                groupByPaquete,
+                null,
+                null
+        );
+
+        while (cursorPaquete.moveToNext()) {
+            int id = cursorPaquete.getInt(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_ID));
+            String nombre = cursorPaquete.getString(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_NOMBRE));
+            String descripcion = cursorPaquete.getString(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_DESCRIPCION));
+            double precio = cursorPaquete.getDouble(cursorPaquete.getColumnIndexOrThrow(  DBplan.PAQUETE_COL_PRECIO));
+            int cantidad = cursorPaquete.getInt(cursorPaquete.getColumnIndexOrThrow("cantidad"));
+            ItemCarrito item = new ItemCarrito(id, nombre, descripcion, precio, cantidad);
+            items.add(item);
+        }
+        cursorPaquete.close();
 
         return items;
     }
@@ -76,7 +142,7 @@ public class CarritoActivity extends AppCompatActivity {
         for (ItemCarrito item : itemsCarrito) {
             total += item.getPrecio() * item.getCantidad();
         }
-        totalCarrito.setText(String.format("Total: $%.2f", total));
+        totalCarrito.setText(String.format(Locale.getDefault(), "Total: $%.2f", total));
     }
 
     private void realizarPago() {

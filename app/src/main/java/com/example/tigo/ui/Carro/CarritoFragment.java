@@ -37,8 +37,7 @@ public class CarritoFragment extends Fragment {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.carrito, container, false);
         return view;
     }

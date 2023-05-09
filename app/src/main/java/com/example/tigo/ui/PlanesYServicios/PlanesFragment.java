@@ -12,14 +12,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+
 
 import com.example.tigo.DataBase.DBplan;
 import com.example.tigo.Planes.Plan;
 import com.example.tigo.Planes.PlanesServiciosContract;
 import com.example.tigo.Planes.PlanesServiciosPresenter;
 import com.example.tigo.R;
-import com.example.tigo.databinding.PlanesYServiciosBinding;
+
 
 public class PlanesFragment extends Fragment implements PlanesServiciosContract.View  {
 
