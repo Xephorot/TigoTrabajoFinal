@@ -24,7 +24,7 @@ public class CarritoActivity extends AppCompatActivity {
     private SQLiteDatabase database;
     private RecyclerView recyclerView;
     private TextView totalCarrito;
-    private Button btnVolver, btnPagar;
+    private Button  btnPagar;
     private CarritoAdapter carritoAdapter;
     private ArrayList<ItemCarrito> itemsCarrito;
 
@@ -38,7 +38,6 @@ public class CarritoActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView_carrito);
         totalCarrito = findViewById(R.id.total_carrito);
-        btnVolver = findViewById(R.id.btn_volver);
         btnPagar = findViewById(R.id.btn_pagar);
         setContentView(R.layout.carrito);
 
@@ -49,12 +48,6 @@ public class CarritoActivity extends AppCompatActivity {
 
         actualizarTotalCarrito();
 
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); // Cierra la actividad y vuelve a la anterior
-            }
-        });
 
         btnPagar.setOnClickListener(new View.OnClickListener() {
             @Override

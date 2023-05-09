@@ -51,7 +51,6 @@ public class CarritoFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView_carrito);
         totalCarrito = view.findViewById(R.id.total_carrito);
-        btnVolver = view.findViewById(R.id.btn_volver);
         btnPagar = view.findViewById(R.id.btn_pagar);
 
         itemsCarrito = obtenerItemsCarrito();
@@ -61,12 +60,7 @@ public class CarritoFragment extends Fragment {
 
         actualizarTotalCarrito();
 
-        btnVolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Logica para volver
-            }
-        });
+
 
         btnPagar.setOnClickListener(new View.OnClickListener() {
             @Override

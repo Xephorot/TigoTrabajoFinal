@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.tigo.ui.PlanesYServicios.PlanesFragment"
-        android:label="@string/menu_gallery"
+        android:label="Planes"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.tigo.ui.Carro.CarritoFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Carrito"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>
